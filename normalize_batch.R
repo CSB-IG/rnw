@@ -11,7 +11,7 @@ suppressPackageStartupMessages(library(affy))
 parser <- ArgumentParser(description="Normalize CEL files of a same batch.")
 parser$add_argument("--bgcorrect", default="none",      choices=bgcorrect.methods(), help="method for background noise correction")
 parser$add_argument("--normalize", default="quantiles", choices=normalize.AffyBatch.methods(), help="normalizing method")
-parser$add_argument("--matrix", required=TRUE, help="normalized expression matrix")
+parser$add_argument("--matrix", required=TRUE, help="normalized expression matrix output")
 parser$add_argument("cel", nargs="+", help="CEL files to normalize")
 args   <- parser$parse_args()
 
