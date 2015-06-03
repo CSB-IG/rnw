@@ -12,7 +12,7 @@ suppressPackageStartupMessages(library(ggbiplot))
 parser <- ArgumentParser(description="Plot PCA from a matrix file.")
 parser$add_argument("--matrix", required=TRUE, help="matrix file")
 parser$add_argument("--pdf", required=TRUE, help="path to PDF output")
-parser$add_argument("--color_list", required=TRUE, help="csv file that indicates how many groups are in your data")
+parser$add_argument("--groups_list", required=TRUE, help="csv file that indicates how many groups are in your data")
 args   <- parser$parse_args()
 #This function makes the Principal Component Analysis
 pcaexprmat<-function(M){
@@ -37,7 +37,7 @@ plotpcagroups <-function (T.M.pca, outpdf) {
 #Read the expression matrix
 M = read.table(args$matrix, sep=",", header=TRUE, row.names=1)
 #Read the vector which correlates the position of each column to its gruop
-mygroups<-read.table(args$color_list,header=FALSE)
+mygroups<-read.table(args$groups_list,header=FALSE)
 mygroups<-mygroups$V1
 #Call to the functions
 plotpcagroups( pcaexprmat(M), args$pdf )
