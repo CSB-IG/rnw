@@ -14,6 +14,9 @@ parser$add_argument("--matrix", required=TRUE, help="matrix file")
 parser$add_argument("--pdf", required=TRUE, help="path to PDF output")
 parser$add_argument("--groups_list", required=TRUE, help="csv file that indicates how many groups are in your data")
 args   <- parser$parse_args()
+
+#Suggestion: Add option to write out the covariance matrix as a CSV file --GDJ 
+
 #This function makes the Principal Component Analysis
 pcaexprmat<-function(M){
     T.M<-t(M)
