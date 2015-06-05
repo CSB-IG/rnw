@@ -6,15 +6,13 @@
 ### Specifying sources
 ###############################################################################
 
-source ()
-source ()
-source ()
+source("http://bioconductor.org/biocLite.R")
 
 ###############################################################################
 ### Installing and/or loading required packages 
 ###############################################################################
 
-### PCA ###
+### From CRAN ###
 
 if (!require("argparse")) {
   install.packages("argparse", dependencies = TRUE)
@@ -24,46 +22,50 @@ if (!require("devtools")) {
   install.packages("devtools", dependencies = TRUE)
   library(devtools)
 }
+
+### From Github (requires devtools) ###
+
 if (!require("ggbiplot")) {
-  install.packages("ggbiplot", dependencies = TRUE)
+  install_github("vqv/ggbiplot", dependencies = TRUE)
   library(ggbiplot)
 }
-if (!require("vqv")) {
-  install.packages("vqv", dependencies = TRUE)
-  library(vqv)
-}
 
-### With BiConductor ###
+# if (!require("vqv")) {
+#   install_github("vqv", username = "vqv" , dependencies = TRUE)
+#   library(vqv)
+# } ## Is this a package??? Not found!!! ######################################
+
+### From BioConductor ###
 
 if (!require("ctc")) {
-  install.packages("ctc", dependencies = TRUE)
+  biocLite("ctc", ask =FALSE)
   library(ctc)
 }
 if (!require("heatmap.plus")) {
-  install.packages("heatmap.plus", dependencies = TRUE)
+  biocLite("heatmap.plus", ask =FALSE)
   library(heatmap.plus)
 }
 if (!require("impute")) {
-  install.packages("impute", dependencies = TRUE)
+  biocLite("impute", ask =FALSE)
   library(impute)
 }
 if (!require("genefu")) {
-  install.packages("genefu", dependencies = TRUE)
+  biocLite("genefu", ask =FALSE)
   library(genefu)
 }
 if (!require("limma")) {
-  install.packages("limma", dependencies = TRUE)
+  biocLite("limma", ask = FALSE)
   library(limma)
 }
 if (!require("affy")) {
-  install.packages("affy", dependencies = TRUE)
+  biocLite("affy", ask = FALSE)
   library(affy)
 }
 if (!require("annotate")) {
-  install.packages("annotate", dependencies = TRUE)
+  biocLite("annotate", ask = FALSE)
   library(annotate)
 }
 if (!require("hugene10sttranscriptcluster.db")) {
-  install.packages("hugene10sttranscriptcluster.db", dependencies = TRUE)
+  biocLite("hugene10sttranscriptcluster.db", ask = FALSE)
   library(hugene10sttranscriptcluster.db)
 }
