@@ -1,5 +1,5 @@
-## Installing dependencies for: "argparse", "devtools", "ggbiplot" (GitHub), 
-## "vqv"; BioConductor: "ctc", "heatmap.plus", "impute", "genefu", "limma",
+## Installing packages and dependencies for: "argparse", "devtools", 
+## "ggbiplot", "vqv", "ctc", "heatmap.plus", "impute", "genefu", "limma", 
 ## "affy", "annotate", "hugene10sttranscriptcluster.db"
 
 ###############################################################################
@@ -30,10 +30,11 @@ if (!require("ggbiplot")) {
   library(ggbiplot)
 }
 
+## Is this a package??? Not found!!! ##########################################
 # if (!require("vqv")) {
 #   install_github("vqv", username = "vqv" , dependencies = TRUE)
 #   library(vqv)
-# } ## Is this a package??? Not found!!! ######################################
+# } 
 
 ### From BioConductor ###
 
