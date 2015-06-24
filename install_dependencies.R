@@ -1,6 +1,6 @@
 ## Installing packages and dependencies for: "argparse", "devtools", 
 ## "ggbiplot", "vqv", "ctc", "heatmap.plus", "impute", "genefu", "limma", 
-## "affy", "annotate", "hugene10sttranscriptcluster.db"
+## "affy", "annotate", "hugene10sttranscriptcluster.db" "gplots" "RColorBrewer"
 
 ###############################################################################
 ### Specifying sources
@@ -21,6 +21,14 @@ if (!require("argparse")) {
 if (!require("devtools")) {
   install.packages("devtools", dependencies = TRUE)
   library(devtools)
+}
+if (!require("gplots")) {
+  install.packages("gplots", dependencies = TRUE)
+  library(gplots)
+}
+if (!require("RColorBrewer")) {
+  install.packages("RColorBrewer", dependencies = TRUE)
+  library(RColorBrewer)
 }
 
 ### From Github (requires devtools) ###
