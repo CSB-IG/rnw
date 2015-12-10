@@ -1,11 +1,8 @@
 ## Installing packages and dependencies for: "argparse", "devtools", 
-## "ggbiplot", "vqv", "ctc", "heatmap.plus", "impute", "genefu", "limma", 
+## "vqv/ggbiplot", "ctc", "heatmap.plus", "impute", "genefu", "limma", 
 ## "affy", "annotate", "hugene10sttranscriptcluster.db" "gplots" "RColorBrewer"
 
-###############################################################################
 ### Specifying sources
-###############################################################################
-
 source("http://bioconductor.org/biocLite.R")
 
 ###############################################################################
@@ -37,12 +34,6 @@ if (!require("ggbiplot")) {
   install_github("vqv/ggbiplot", dependencies = TRUE)
   library(ggbiplot)
 }
-
-## Is this a package??? Not found!!! ##########################################
-# if (!require("vqv")) {
-#   install_github("vqv", username = "vqv" , dependencies = TRUE)
-#   library(vqv)
-# } 
 
 ### From BioConductor ###
 
