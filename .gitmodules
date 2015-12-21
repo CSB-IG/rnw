@@ -1,0 +1,15 @@
+[submodule "Master_Regulators_search"]
+	path = Master_Regulators_search
+	url = https://github.com/CSB-IG/tmr_search.git
+[submodule "community_detection_algotithms"]
+	path = community_detection_algotithms
+	url = https://github.com/saac/ComplexNetworks-ToolBox.git
+[submodule "enrich_biological_communities"]
+	path = enrich_biological_communities
+	url = https://github.com/saac/Enrichmentator.git
+[submodule "Pathifier_tool_kit"]
+	path = Pathifier_tool_kit
+	url = https://github.com/AngelCampos/Pathifier-Tool-Kit.git
+[submodule "parallel_aracne"]
+	path = parallel_aracne
+	url = https://github.com/CSB-IG/parallel-aracne.git
