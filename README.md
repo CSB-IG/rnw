@@ -1,5 +1,8 @@
-# rnw
-**regulation network workflow**
+# Regulatory Netkwork Workflow
+
+This is a project to centralize the Workflow for
+the [Computational Systems Biology/Integrative Genomics research group at INMEGEN](http://csbig.inmegen.gob.mx/)
+in order to reproduce fully or partially previous analysis in new datasets.
 
 
 
