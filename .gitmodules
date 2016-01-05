@@ -13,3 +13,6 @@
 [submodule "parallel_aracne"]
 	path = parallel_aracne
 	url = https://github.com/CSB-IG/parallel-aracne.git
+[submodule "file_format_converters/bed2basespacemanifest"]
+	path = file_format_converters/bed2basespacemanifest
+	url = https://github.com/xihh87/bed2basespacemanifest
