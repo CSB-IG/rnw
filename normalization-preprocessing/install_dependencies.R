@@ -27,10 +27,6 @@ if (!require("gProfileR")) {
   install.packages("gProfileR", dependencies = TRUE)
 }
 
-if (!require("parallel")) {
-  install.packages("parallel", dependencies = TRUE)
-}
-
 ### From BioConductor ###
 
 if (!require("affy")) {
