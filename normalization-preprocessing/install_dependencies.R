@@ -8,7 +8,8 @@
 #   "gProfileR"
 
 ### Specifying sources
-source("http://bioconductor.org/biocLite.R")
+options(repos = c(CRAN = "http://cran.cnr.Berkeley.edu/",
+                  CRANextra = "http://cran.cnr.Berkeley.edu/"))
 
 ###############################################################################
 ### Installing and/or loading required packages 
@@ -17,17 +18,19 @@ source("http://bioconductor.org/biocLite.R")
 ### From CRAN ###
 
 if (!require("argparse")) {
-  install.packages("argparse", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
+  install.packages("argparse", dependencies = TRUE)
 }
 if (!require("lme4")) {
-  install.packages("lme4", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
+  install.packages("lme4", dependencies = TRUE)
 }
 
 if (!require("gProfileR")) {
-  install.packages("gProfileR", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
+  install.packages("gProfileR", dependencies = TRUE)
 }
 
 ### From BioConductor ###
+source("http://bioconductor.org/biocLite.R")
+
 
 if (!require("affy")) {
   biocLite("affy", ask =FALSE)
