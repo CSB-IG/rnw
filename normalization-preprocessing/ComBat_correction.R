@@ -3,7 +3,7 @@
 
 suppressPackageStartupMessages(library(argparse))
 
-parser <- ArgumentParser(description="adjust for batch effects in datasets by ComBat")
+parser <- ArgumentParser(description="adjust for batch effects in datasets using ComBat")
 parser$add_argument("--matrix", required=TRUE, help="normalized expression matrix input to correct")
 parser$add_argument("--phenotype", required=TRUE, help="phenotype data")
 parser$add_argument("--output", required=TRUE, help="batch effect corrected output matrix")

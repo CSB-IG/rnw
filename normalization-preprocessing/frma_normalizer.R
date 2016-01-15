@@ -10,8 +10,8 @@ suppressPackageStartupMessages(library(affy))
 suppressPackageStartupMessages(library(limma))
 suppressPackageStartupMessages(library(frma))
 
-parser <- ArgumentParser(description="Normalize all CEL files in a same folder with frma")
-parser$add_argument("--celfolder", nargs="+", help="CEL files directory to normalize")
+parser <- ArgumentParser(description="Normalize and summarize  with frma all .CEL files into one or more folders")
+parser$add_argument("--celfolder", required=TRUE, nargs="+", help="CEL files directory to normalize")
 parser$add_argument("--bgcorrect", default="rma", help="type of background correction to perform: either none or rma")
 parser$add_argument("--normalize", default="quantile", help="type of normalization to perform: either none or quantile")
 parser$add_argument("--summarize", default="robust_weighted_average", help="type of summarization to perform: one of median_polish, average, median, weighted_average, robust_weighted_average, random_effect")
@@ -19,7 +19,7 @@ parser$add_argument("--matrix", required=TRUE, help="normalized expression matri
 args <- parser$parse_args()
 
 # read 'em
-affybatch <- ReadAffy(celfile.path=args$celfolder)
+affybatch <- ReadAffy(celfile.path=c(args$celfolder))
 
 # normalize 'em
 
@@ -33,6 +33,7 @@ frmaData <- frma(affybatch, background=args$bgcorrect,
 # options(warn = oldw) # restoring warning messages
 
 eset<-exprs(frmaData)
+
 # write 'em!
 write.table(eset, file=args$matrix, , quote = F, row.names = TRUE, col.names = TRUE, sep = "\t")
 

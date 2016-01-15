@@ -17,14 +17,14 @@ source("http://bioconductor.org/biocLite.R")
 ### From CRAN ###
 
 if (!require("argparse")) {
-  install.packages("argparse", dependencies = TRUE)
+  install.packages("argparse", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
 }
 if (!require("lme4")) {
-  install.packages("lme4", dependencies = TRUE)
+  install.packages("lme4", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
 }
 
 if (!require("gProfileR")) {
-  install.packages("gProfileR", dependencies = TRUE)
+  install.packages("gProfileR", dependencies = TRUE, repos = https://cran.cnr.Berkeley.edu/)
 }
 
 ### From BioConductor ###
