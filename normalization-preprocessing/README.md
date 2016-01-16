@@ -18,7 +18,7 @@ Four steps to go from .CEL expression arrays files, to a preprocessed and normal
 	+ **celfolder**: one or more folders with .CEL files (required)
 	+ **bgcorrect**: type of background correction: rma (default) on none
 	+ **normalize**: type of normalization: quantile (default) on none
-	+ **sumarize**: type of summarization: robust_weighted_average (default), one of  median_polish, average, median, weighted_average, random_effect
+	+ **sumarize**: type of summarization: robust_weighted_average (default), median, median_polish, average or random_effect
 	+ **matrix**: normalized expression matrix output (required)
 
 	
