@@ -1,6 +1,6 @@
-# Preprocessin and normalization of microarray samples
+# Preprocessing and normalization of microarray samples
 
-Four steps to go from .CEL expression arrays files, to a preprocessed and normalized ready to ARACNe expresión matrix.
+Four steps to go from .CEL expression arrays files, to a preprocessed and normalized ready to an ARACNe expression matrix.
 
 1. Install dependecies (no arguments needed).
 
@@ -25,11 +25,16 @@ Four steps to go from .CEL expression arrays files, to a preprocessed and normal
 	+ **phenotype**: phenotype data (required)
 	+ **output**: batch effect corrected output matrix (required)
 				
-4. Annotate and collapse the expresion matrix by gene symbols using B statistical.
+4. Annotate and collapse the expresion matrix by gene symbols using B statistical or by means. (It requires internet connection.)
 
-			Rscript B_collapser.R --matrix proofset_noBE.txt --phenotype proof_set/phenotype_file.txt --case case --control control
+			Rscript B_collapser.R --matrix proofset_noBE.txt --phenotype proof_set/phenotype_file.txt --collapse B --case case --control control --phatifier no
 				
 	+ **matrix**: expression matrix to callapse  (required)
 	+ **phenotype**: phenotype data  (required)
+	+ **collapse**: you can select the type of collapse by B statistic or means (default: B)
 	+ **case**: name of cases samples in the output column in the phenotype file (default: case)
-	+ **control**: name of casontrol samples in the output column in the phenotype file (default: control)
+	+ **control**: name of control samples in the output column in the phenotype file (default: control)
+	+ **pathifier**: if you need a matrix ready for pathfier with the first line indicating the cases and controls with zeros and ones, put yes in this option. (default: no)
+	
+	
+The resulting matrix can be the input of "[parallel_aracne](/parallel_aracne)" module or the "[Pathifier_tool_kit](/Pathifier-Tool-Kit)" module.
