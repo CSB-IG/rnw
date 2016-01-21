@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 #
 #
-# try $ ./pre_collapse.R -h for help
+# try $ ./collapse.R -h for help
 #
 #
 
@@ -30,9 +30,6 @@ gconvert<- gconvert[sort.list(gconvert[,1]),]
 genesymbol <- gconvert[,5]
 genesymbol<-ifelse(genesymbol=="N/A", as.vector(rownames(edata)), as.vector(genesymbol))
 
-#genesymbol<-read.table(file="genesymbol.txt", header = TRUE, sep = "\t")
-#write.table(genesymbol,file="genesymbol.txt", quote = FALSE, sep = "\t", row.names = FALSE,)
-
 # Design a contingence matrix
 design = matrix(rep(0, 2*length(rownames(pheno))), nrow=length(rownames(pheno)))
 colnames(design) <- c('case','control')
@@ -54,25 +51,30 @@ if (args$collapse=="B") {
 	colnames(precolaps)[2]<-"B"
 	# collapse
 	colapsed <- do.call(rbind, lapply(split(precolaps,precolaps$genesymbol),function(chunk) chunk[which.max(chunk$B),]))
-	colapsed <- colapsed[,-2]
+	rownames(colapsed)<-colapsed[,1]
+	colapsed <- colapsed[,c(-1,-2)]
 } else if (args$collapse=="means") {
 	###  Media collapse  ###
 	precolaps <- data.frame(genesymbol, edata)
 	colapsed <- do.call(rbind, lapply(split(precolaps,precolaps[,1]), function(chunk) {colMeans(chunk[,-1])}))
-} else {stop("B or means most be selected")}
+} else {stop("B or means options most be selected")}
+
+# Medianas
+# colMedians=function(mat,na.rm=TRUE) {
+# return(apply(mat,2,median,na.rm=na.rm))}
 
 ## Write result
+
 if (args$pathifier=="no") {
 	# write
 	result = file.path(dirname(args$matrix), paste(sub("^([^.]*).*", "\\1", args$matrix),"_colapsed.txt",sep=""))
-	write.table(colapsed, file=result, quote = FALSE, sep = "\t", row.names = FALSE)
+	write.table(colapsed, file=result, quote = FALSE, sep = "\t", row.names = TRUE)
 } else if (args$pathifier=="yes"){
 	# for Pathifier
-	NORMALS <- c(3,design[,2])
+	NORMALS <- design[,2]
 	pathifier <- rbind(NORMALS,as.matrix(colapsed))
-	pathifier[1,1]<-"NORMALS"
 	result = file.path(dirname(args$matrix), paste(sub("^([^.]*).*", "\\1", args$matrix),"_pathifier.txt",sep=""))
-	write.table(pathifier, file=result, quote = FALSE, sep = "\t", row.names = FALSE)
+	write.table(pathifier, file=result, quote = FALSE, sep = "\t", row.names = TRUE)
 } else {
 	stop("please write yes or no")
 }
