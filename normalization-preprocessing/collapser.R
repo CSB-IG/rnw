@@ -12,7 +12,7 @@ suppressPackageStartupMessages(library(limma))
 parser <- ArgumentParser(description="Collapse the expression matrix by gene symbols with B statistical")
 parser$add_argument("--matrix", required=TRUE, help="normalized expression matrix")
 parser$add_argument("--phenotype", required=TRUE, help="phenotype data")
-parser$add_argument("--collapse", default="B", help="procedure to collapse, B or means")
+parser$add_argument("--collapse", default="B", help="procedure to collapse, B, medians or means")
 parser$add_argument("--case", default="case", help="name of cases in the phenotype file")
 parser$add_argument("--control", default="control", help="name of controls in the phenotype file")
 parser$add_argument("--pathifier", default="no", help="if you need a matrix ready for Run_Pathifier.R, say yes")
@@ -53,17 +53,20 @@ if (args$collapse=="B") {
 	colapsed <- do.call(rbind, lapply(split(precolaps,precolaps$genesymbol),function(chunk) chunk[which.max(chunk$B),]))
 	rownames(colapsed)<-colapsed[,1]
 	colapsed <- colapsed[,c(-1,-2)]
+} else if (args$collapse=="medians") {
+	###  Medians collapse  ###
+	colMedians=function(mat,na.rm=TRUE) {return(apply(mat,2,median,na.rm=na.rm))}
+	precolaps <- data.frame(genesymbol, edata)
+	colapsed <- do.call(rbind, lapply(split(precolaps,precolaps[,1]), function(chunk) {colMedians(chunk[,-1])}))
 } else if (args$collapse=="means") {
-	###  Media collapse  ###
+	###  Means collapse  ###
 	precolaps <- data.frame(genesymbol, edata)
 	colapsed <- do.call(rbind, lapply(split(precolaps,precolaps[,1]), function(chunk) {colMeans(chunk[,-1])}))
-} else {stop("B or means options most be selected")}
+} else {
+	stop("B medians or means option most be selected")
+}
 
-# Medianas
-# colMedians=function(mat,na.rm=TRUE) {
-# return(apply(mat,2,median,na.rm=na.rm))}
-
-## Write result
+## Write result ##
 
 if (args$pathifier=="no") {
 	# write
