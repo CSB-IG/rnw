@@ -1,4 +1,4 @@
-# Regulatory Netkwork Workflow
+# Regulatory Network Workflow
 
 This is a project to centralize the Workflow for
 the [Computational Systems Biology/Integrative Genomics research group at INMEGEN](http://csbig.inmegen.gob.mx/)
