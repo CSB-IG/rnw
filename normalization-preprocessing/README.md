@@ -41,7 +41,7 @@ Four steps to go from .CEL expression arrays files, to a preprocessed and normal
 				--collapse B \
 				--case case \
 				--control control \
-				--phatifier no
+				--pathifier no
 				
 	+ **matrix**: expression matrix to callapse  (required)
 	+ **phenotype**: phenotype data  (required)
