@@ -1,6 +1,6 @@
 # Preprocessing and normalization of microarray samples
 
-Four steps to go from .CEL expression arrays files, to a preprocessed and normalized ready to an ARACNe expression matrix. This module includes a test set in the folder [proof_set](/normalization-preprocessing/proof_set/). The file [phenotype_file.tsv](https://github.com/CSB-IG/rnw/blob/master/normalization-preprocessing/proof_set/phenotype_file.tsv) is an example of the phenotype data file required.
+Four steps to go from .CEL expression arrays files, to a preprocessed and normalized ready to an ARACNe expression matrix. This module includes a test set in the folder [proof_set](/normalization-preprocessing/proof_set/). The file [phenotype_file.tsv](https://github.com/CSB-IG/rnw/blob/master/normalization-preprocessing/proof_set/phenotype_file.tsv) is an example of the phenotype data file required. **Please note** that the "phenotype" file must have the columns titled as "outcome" and "batch" as in the example, in order to be processed correctly.
 
 ###1. Install dependecies (no arguments needed).
 
