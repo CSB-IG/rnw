@@ -30,3 +30,6 @@ $COLLAPSE:	$MATRIX_TO_COLLAPSE
 		--case $CASE_NAME \
 		--control $CONTROL_NAME \
 		--pathifier $FOR_PATHIFIER
+
+clean:V: 
+	rm -f *.pdf $NOBATCH_MATRIX $COLLAPSE

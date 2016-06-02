@@ -279,6 +279,7 @@ for (j in 1:effects_n){
 }
 
 report = file.path(dirname(args$output), paste(sub("^([^.]*).*", "\\1", basename(args$output)),"_pvca.pdf",sep=""))
+
 pdf(report,width=5,height=7)
 bp <- barplot(randomEffectsMatrixWtAveProp,  main = "Before ComBat correction", xlab = "Effects", ylab = "Weighted average proportion variance", ylim= c(0,1.1),col = c("blue"), las=2)
 axis(1, at = bp, labels = effectsNames, xlab = "Effects", cex.axis = 0.5, las=2)
