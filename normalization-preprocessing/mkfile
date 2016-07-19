@@ -1,0 +1,35 @@
+<config.mk
+
+all:V: collapse
+
+norm:V: $MATRIX
+
+$MATRIX:	$CELFOLDER
+	Rscript frma_normalizer.R \
+		--celfolder $CELFOLDER \
+		--bgcorrect $BGCORRECT \
+		--normalize $NORMALIZE \
+		--summarize $SUMMARIZE \
+		--matrix $MATRIX
+
+combat:V:	$OUTPUT
+
+$NOBATCH_MATRIX:	$MATRIX
+	Rscript ComBat_correction.R \
+		--matrix $MATRIX \
+		--phenotype $PHENOTYPE \
+		--output $NOBATCH_MATRIX
+
+collapse:V:	$COLLAPSE
+
+$COLLAPSE:	$MATRIX_TO_COLLAPSE
+	Rscript collapser.R \
+		--matrix $prereq \
+		--phenotype $PHENOTYPE \
+		--collapse $target \
+		--case $CASE_NAME \
+		--control $CONTROL_NAME \
+		--pathifier $FOR_PATHIFIER
+
+clean:V: 
+	rm -f *.pdf $NOBATCH_MATRIX $COLLAPSE
