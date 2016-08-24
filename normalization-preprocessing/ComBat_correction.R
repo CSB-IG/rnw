@@ -16,7 +16,7 @@ edata <- as.matrix(read.table(file=args$matrix, header=TRUE, sep="\t", row.names
 pheno <- read.table(file=args$phenotype, header = TRUE, sep = "\t", row.names=1)
 
 # pheno samples and edata column names (samples) must be in the same order
-edata <- edata[ ,(as.vector(pheno$sample_name))]
+edata <- edata[ ,(colnames(pheno))]
 
 # proof if the phenotype file contains a outcome and batch column
 
