@@ -13,7 +13,7 @@ regulon = get(ls()[2]);
 
 for (name in names(regulon)) {
     source = rep(name, length(regulon[[name]]$tfmod));
-    sif    = cbind(source, names(regulon[[name]]$tfmod), regulon[[name]]$tfmod[[1]]);
+    sif    = cbind(source, names(regulon[[name]]$tfmod), regulon[[name]]$tfmod);
     write.table(sif, file = outfile, append = TRUE, quote = FALSE, sep = "\t", col.names=FALSE, row.names=FALSE);
 }
 
